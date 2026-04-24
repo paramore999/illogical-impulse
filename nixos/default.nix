@@ -21,7 +21,6 @@
   security.rtkit.enable = true;
 
   programs.hyprland.enable = true;
-  programs.zsh.enable = true;
 
   programs.nix-ld = {
     enable = true;
@@ -41,7 +40,6 @@
 
   users.users.paramore = {
     isNormalUser = true;
-    shell = pkgs.zsh;
     extraGroups = [ "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "render" ];
   };
 
@@ -50,7 +48,6 @@
     wget
     git
     pciutils
-    home-manager
   ];
 
   environment.sessionVariables = {

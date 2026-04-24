@@ -11,8 +11,6 @@
     ./programs/zsh.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   home = {
     username = "paramore";
     homeDirectory = "/home/paramore";
