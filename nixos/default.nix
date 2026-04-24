@@ -4,14 +4,13 @@
     ./hardware-configuration.nix
     ./nvidia.nix
     ./networking.nix
+    ./nix.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Asia/Almaty";
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.config.allowUnfree = true;
 
