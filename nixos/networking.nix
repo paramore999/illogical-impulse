@@ -2,10 +2,11 @@
 {
   networking = {
     hostName = "nixos";
-    networkmanager.enable = true;
-
-    # Let systemd-resolved handle DNS; NetworkManager hands off to it automatically.
-    nameservers = [ "1.1.1.1" "9.9.9.9" ];
+    networkmanager = {
+      enable = true;
+      # Hand DNS resolution off to systemd-resolved instead of NM's internal resolver.
+      dns = "systemd-resolved";
+    };
 
     firewall = {
       enable = true;
