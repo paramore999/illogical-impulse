@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -35,7 +35,7 @@
     ];
   };
 
-  users.users.paramore = {
+  users.users.${username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "render" ];
   };
@@ -70,7 +70,7 @@
       default_session.command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
       initial_session = {
         command = "start-hyprland";
-        user = "paramore";
+        user = username;
       };
     };
   };

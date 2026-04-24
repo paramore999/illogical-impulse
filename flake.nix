@@ -27,7 +27,9 @@
 
   outputs = { nixpkgs, home-manager, illogical-flake, ... } @ inputs:
   let
-    system = "x86_64-linux";
+    system   = "x86_64-linux";
+    username = "paramore";
+    hostname = "nixos";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
@@ -35,14 +37,15 @@
     };
   in
   {
-    nixosConfigurations.paramore = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       inherit system;
+      specialArgs = { inherit inputs username hostname; };
       modules = [ ./nixos ];
     };
 
-    homeConfigurations.paramore = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { inherit inputs username; };
       modules = [
         ./home
         illogical-flake.homeManagerModules.default
