@@ -10,6 +10,8 @@ A NixOS [home-manager](https://github.com/nix-community/home-manager) configurat
 - **VS Code** with Claude Code extension, **IntelliJ IDEA**, **JDK 23**, **Gradle**, **Node.js**
 - **Zsh** — autosuggestions, syntax highlighting, history search
 - **GTK dark theming**, **Nvidia** drivers, **nix-ld** for dynamic binaries
+- **Networking** — NetworkManager, systemd-resolved, Avahi, Bluetooth
+- **Nix store** — weekly garbage collection, auto-optimise-store
 
 ## Usage
 
@@ -18,7 +20,7 @@ A NixOS [home-manager](https://github.com/nix-community/home-manager) configurat
 nh home switch .
 
 # Apply NixOS system configuration
-sudo nixos-rebuild switch --flake .#paramore
+sudo nixos-rebuild switch --flake .#nixos
 
 # Dry-run to preview changes
 nh home build .
@@ -28,28 +30,6 @@ nix flake update
 
 # Update a single input
 nix flake update nixpkgs
-```
-
-## Structure
-
-```
-flake.nix                          # entry point — homeConfigurations + nixosConfigurations
-overlays/
-└── kde-material-you-colors.nix   # python-magic hotfix for illogical-flake
-nixos/
-├── default.nix                    # NixOS system config (hardware, nvidia, nix-ld, boot)
-└── hardware-configuration.nix     # machine-specific — see note below
-home/
-├── default.nix                    # user info, imports
-├── packages.nix                   # general GUI apps and CLI tools
-├── gtk.nix                        # GTK dark theme
-└── programs/
-    ├── java.nix                   # JDK 23, Gradle, IntelliJ, Node.js
-    ├── neovim.nix
-    ├── spicetify.nix
-    ├── vscode.nix
-    ├── git.nix
-    └── zsh.nix
 ```
 
 ## Notes
