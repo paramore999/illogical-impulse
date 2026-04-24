@@ -25,16 +25,24 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, illogical-flake, ... } @ inputs: {
+  outputs = { nixpkgs, home-manager, illogical-flake, ... } @ inputs:
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [ (import ./overlays/kde-material-you-colors.nix) ];
+    };
+  in
+  {
+    nixosConfigurations.paramore = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [ ./nixos ];
+    };
+
     homeConfigurations.paramore = home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-        overlays = [ (import ./overlays/kde-material-you-colors.nix) ];
-      };
-
+      inherit pkgs;
       extraSpecialArgs = { inherit inputs; };
-
       modules = [
         ./home
         illogical-flake.homeManagerModules.default

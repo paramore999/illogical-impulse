@@ -13,9 +13,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # Necessary for non-NixOS to handle GPU (since home-manager version 25.11)
-  targets.genericLinux.enable = true;
-
   home = {
     username = "paramore";
     homeDirectory = "/home/paramore";
