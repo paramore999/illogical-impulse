@@ -35,11 +35,11 @@ nh home build .
 
 ## Git Workflow
 
-- **Branch off main** for every new feature or change set.
 - **Commit each logical chunk** as work progresses — don't batch everything into one commit at the end. A logical chunk is a self-contained change (e.g. adding a module, extracting a file, changing a config option).
 - **Run `nh home build .`** (dry-run) before committing any nix change to catch evaluation errors first.
 - **Commit messages** should follow conventional commits style: `feat:`, `fix:`, `refactor:`, `chore:`, etc., and explain *why*, not just *what*.
 - **Use worktrees** for parallel tasks to keep sessions isolated: `claude --worktree <name>`.
+- **Apply on staged changes** only by a user request.
 - **Name sessions** with `claude -n "<topic>"` and resume via `claude --resume <name>` or `claude --from-pr <number>`.
 
 ## Architecture
