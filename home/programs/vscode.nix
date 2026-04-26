@@ -16,6 +16,10 @@
         "[markdown]" = {
           "diffEditor.ignoreTrimWhitespace" = true;
         };
+
+        "claudeCode.preferredLocation" = "panel";
+
+        "files.autoSave" = "off";
       };
     };
   };
