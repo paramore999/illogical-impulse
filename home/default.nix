@@ -15,6 +15,7 @@
     inherit username;
     homeDirectory = "/home/${username}";
     stateVersion = "25.11";
+    sessionVariables.NH_FLAKE = "/home/${username}/illogical-impulse";
   };
 
   fonts.fontconfig.enable = true;
