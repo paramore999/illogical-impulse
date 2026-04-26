@@ -18,8 +18,10 @@
   # Systemd-resolved for reliable DNS resolution and LLMNR/mDNS support.
   services.resolved = {
     enable = true;
-    dnssec = "allow-downgrade";
-    llmnr = "true";
+    settings.Resolve = {
+      DNSSEC = "allow-downgrade";
+      LLMNR = "true";
+    };
   };
 
   # mDNS for .local hostname resolution on the LAN.
