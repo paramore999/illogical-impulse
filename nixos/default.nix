@@ -63,6 +63,7 @@
   services.tumbler.enable = true;
   services.geoclue2.enable = true;
   services.upower.enable = true;
+  services.fstrim.enable = true;
 
   services.greetd = {
     enable = true;
