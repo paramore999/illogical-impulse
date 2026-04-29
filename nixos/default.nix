@@ -5,6 +5,7 @@
     ./nvidia.nix
     ./networking.nix
     ./nix.nix
+    ./firefox.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
