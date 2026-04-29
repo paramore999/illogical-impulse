@@ -8,7 +8,6 @@
     thorium-reader
     nixfmt
     posy-cursors
-    google-chrome
     lm_sensors
     zip
     unzip
