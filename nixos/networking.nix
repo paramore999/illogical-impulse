@@ -8,11 +8,7 @@
       dns = "systemd-resolved";
     };
 
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
-    };
+    firewall.enable = true;
   };
 
   # Systemd-resolved for reliable DNS resolution and LLMNR/mDNS support.
