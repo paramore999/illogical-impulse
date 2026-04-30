@@ -30,6 +30,5 @@
   environment.sessionVariables = {
     NVD_BACKEND = "direct";
     LIBVA_DRIVER_NAME = "nvidia";
-    MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 }
