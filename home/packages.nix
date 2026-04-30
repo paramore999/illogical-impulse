@@ -16,5 +16,6 @@
     htop
     claude-code
     nh
+    gh
   ];
 }
